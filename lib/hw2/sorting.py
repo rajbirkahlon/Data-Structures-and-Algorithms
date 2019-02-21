@@ -74,7 +74,12 @@ class Sorting(object):
             j_idx = i_idx-1
             next_e = self[i_idx]
 
-        return 1
+            while(self.id[j_idx] > next_e):
+                self.id[j_idx+1] = self.id[j_idx]
+                j_idx = j_idx-1
+            self.id[j_idx+1] = next_e
+
+        return self.id
 
     def shell_sort(self):
         """Shell sort also known as  or Shell's method, is an in-place comparison sort.

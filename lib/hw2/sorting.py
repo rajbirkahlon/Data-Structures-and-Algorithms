@@ -70,6 +70,10 @@ class Sorting(object):
 
         """
 
+        for i_idx, i_item in enumerate(self.id):
+            j_idx = i_idx-1
+            next_e = self[i_idx]
+
         return 1
 
     def shell_sort(self):
@@ -87,6 +91,7 @@ class Sorting(object):
         extracting the largest element and moving that to the sorted region.
 
         """
+
 
         return 1
 

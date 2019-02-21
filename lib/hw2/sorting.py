@@ -88,7 +88,20 @@ class Sorting(object):
 
         """
 
-        return 1
+        g = len(self.id) //2
+        while g>0:
+            for i_idx, i_item in enumerate(self.id):
+                temp = self.id[i]
+                j_idx = i_idx
+
+                while j_idx >= g and self.id[j_idx] - g > temp:
+                    self.id[j_idx] = self.id[j_idx-g]
+                    j_idx = j_idx-g
+                self.id[j_idx] = temp
+
+                g = g//2
+
+        return self.id
 
     def heap_sort(self):
         """Heapsort is an improved selection sort: it divides its input into a sorted

@@ -72,7 +72,7 @@ class Sorting(object):
 
         for i_idx, i_item in enumerate(self.id):
             j_idx = i_idx-1
-            next_e = self[i_idx]
+            next_e = self.id[i_idx]
 
             while(self.id[j_idx] > next_e):
                 self.id[j_idx+1] = self.id[j_idx]

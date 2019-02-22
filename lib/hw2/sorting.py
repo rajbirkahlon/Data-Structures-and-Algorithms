@@ -74,7 +74,7 @@ class Sorting(object):
             j_idx = i_idx-1
             next_e = self.id[i_idx]
 
-            while(self.id[j_idx] > next_e):
+            while self.id[j_idx] > next_e:
                 self.id[j_idx+1] = self.id[j_idx]
                 j_idx = j_idx-1
             self.id[j_idx+1] = next_e
@@ -141,7 +141,7 @@ class Sorting(object):
                 L.remove(L[0])
             else:
                 p.append(R[0])
-                R.remove([0])
+                R.remove(R[0])
         if len(L) == 0:
             p = p + R
         else:

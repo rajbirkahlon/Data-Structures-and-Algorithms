@@ -145,7 +145,7 @@ class Sorting(object):
         if len(L) == 0:
             p = p + R
         else:
-            p = p + R
+            p = p + L
         return p
 
 

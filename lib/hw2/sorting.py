@@ -120,15 +120,42 @@ class Sorting(object):
         of equal elements in the sorted output.
         """
 
-        return 1
+        mid = len(self.id) // 2
+        L = self.id[:mid]
+        R = self.id[mid:]
 
-    def quick_sort(self):
+        L = self.merge_sort(L)
+        R = self.merge_sort(R)
+        return self.merge(L, R)
+
+
+    def merge(L,R):
+
+        p = []
+        while len(L) !=0 and len(R) != 0:
+            if(L[0] < R[0]):
+                p.append(L[0])
+                L.remove(L[0])
+            else:
+                p.append(R[0])
+                R.remove([0])
+        if len(L) == 0:
+            p = p + R
+        else:
+            p = p + R
+        return p
+
+
+    def quick_sort(self, l, h):
         """Quicksort (sometimes called partition-exchange sort) is an efficient
         sorting algorithm. Developed by Tony Hoare in 1959. It is still a commonly
         used algorithm for sorting. When implemented well, it can be about two or
         three times faster than its main competitors, merge sort and heapsort.
 
         """
+
+        if l < h:
+
 
         return 1
 

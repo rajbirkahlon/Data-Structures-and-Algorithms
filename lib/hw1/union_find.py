@@ -34,6 +34,15 @@ class UF(object):
         (linear number of array accesses)
 
         """
+        a = self.id[p]
+        b = self.id[q]
+
+        if a == b:
+            return
+
+        for i, i_idx in enumerate(self.id):
+            if self.id[i] == a:
+                self.id[i] = b
 
 
         return 1
@@ -45,8 +54,8 @@ class UF(object):
 
         """
 
-        return True
-        #return self.id[p] == self.id[q]
+        #return True
+        return self.id[p] == self.id[q]
 
 
 

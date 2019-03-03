@@ -147,6 +147,19 @@ class UF(object):
 
          """
 
+        a = self.id[p]
+        b = self.id[q]
+
+        if a == b:
+            return
+
+        if self.size[p] < self.size[q]:
+            self.id[p] = q
+            self.size[q] += self.size[p]
+        if self.size[p] > self.size[q]:
+            self.id[q] = p
+            self.size[p] += self.size[q]
+
         return 1
 
 

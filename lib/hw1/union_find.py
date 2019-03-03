@@ -71,7 +71,7 @@ class UF(object):
         if a == b:
             return
 
-        self.id[a] = b
+        self.id[p] = q
 
         return 1
 
@@ -97,12 +97,12 @@ class UF(object):
         if a == b:
             return
 
-        if p < q:
-            a = q
-            #len(b) += len(a)
-        if p > q:
-            b = p
-            #a = a+b
+        if self.size[p] < self.size[q]:
+            self.id[p] = q
+            self.size[q] += self.size[p]
+        if self.size[p] > self.size[q]:
+            self.id[q] = p
+            self.size[p] += self.size[q]
 
         return 1
 

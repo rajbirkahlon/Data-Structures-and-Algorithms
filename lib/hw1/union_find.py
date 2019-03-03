@@ -17,6 +17,7 @@ class UF(object):
 
     def __init__(self):
         self.id = []
+        self.size = []
 
 
     def qf_init(self, N):
@@ -89,6 +90,19 @@ class UF(object):
 
          """
 
+        a = self.id[p]
+        b = self.id[q]
+
+        if a == b:
+            return
+
+        if p < q:
+            a = q
+            #len(b) += len(a)
+        if p > q:
+            b = p
+            #a = a+b
+
         return 1
 
 
@@ -116,7 +130,7 @@ class UF(object):
 
          """
 
-        return True
+        return self.id[p] == self.id[q]
 
     def wpqu_union(self, p, q):
         """Union operation for Weighted path compressed Quick-Union Algorithm.
@@ -133,7 +147,7 @@ class UF(object):
 
          """
 
-        return True
+        return self.id[p] == self.id[q]
 
 if __name__ == "__main__":
 

@@ -122,6 +122,13 @@ class UF(object):
 
          """
 
+        a = self.id[p]
+        b = self.id[q]
+        if a == b:
+            return
+
+        self.id[p] = q
+
         return 1
 
 

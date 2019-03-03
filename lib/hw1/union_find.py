@@ -64,6 +64,12 @@ class UF(object):
          connect p and q.
 
          """
+        a = self.id[p]
+        b = self.id[q]
+        if a == b:
+            return
+
+        self.id[a] = b
 
         return 1
 

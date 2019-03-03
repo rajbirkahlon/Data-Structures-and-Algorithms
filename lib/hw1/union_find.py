@@ -128,6 +128,7 @@ class UF(object):
             return
 
         self.id[p] = q
+        self.id[p] = self.id[self.id[p]]
 
         return 1
 

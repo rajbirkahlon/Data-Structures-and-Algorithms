@@ -26,6 +26,7 @@ class UF(object):
         """
         for x in range(N):
             self.id.append(x)
+            self.size.append(1)
 
     def qf_union(self, p, q):
         """Union operation for Quick-Find Algorithm.

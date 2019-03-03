@@ -74,7 +74,7 @@ class UF(object):
 
          """
 
-        return True
+        return self.id[p] == self.id[q]
 
 
     def wqu_union(self, p, q):

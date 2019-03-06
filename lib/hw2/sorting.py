@@ -88,19 +88,19 @@ class Sorting(object):
 
         """
 
-        a = 1
-        while a < len(self.id)/3:
-            a = 3*a + 1
+        a = len(self.id)//2
 
         while a >= 1:
             for i_idx, i_item in enumerate(self.id):
 
-                for j_idx in range(i_idx, ):
-                    if j_idx >= a and self.id[j] < self.id[j-a]:
-                        temp = self.id[j_idx]
-                        self.id[j_idx] = self.id[j_idx-a]
-                        self.id[j_idx-a] = temp
-                        j = j-a
+                for j_idx in range(a, len(self.id)):
+                    temp = self.id[j_idx]
+                    k_idx = j_idx
+                    while k_idx >= a and self.id[k_idx-a] > temp:
+                        self.id[k_idx] = self.id[k_idx-a]
+                        k_idx -= a
+                    self.id[k_idx] = temp
+                a //= 2
 
         return self.id
 

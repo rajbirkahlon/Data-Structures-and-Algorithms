@@ -110,24 +110,23 @@ class Sorting(object):
         extracting the largest element and moving that to the sorted region.
 
         """
-        n = len(self.id)
-        for i in range(n, -1, -1):
-            self.heapify(self.id, n, i)
-        for i in range(n-1, 0, -1):
+        for i_idx in range(len(self.id), -1, -1):
+            self.heapify(self.id, len(self.id), i_idx)
+        for i in range(len(self.id)-1, 0, -1):
             self.id[i], self.id[0] = self.id[0], self.id[i]
             self.heapify(self.id, i, 0)
         return 1
 
     def heapify(self, n, i):
         larg = i
-        l = 2*i + 1
-        r = 2*i + 1
+        left = 2*i + 1
+        right = 2*i + 1
 
-        if l < n and self.id[i] < self.id[l]:
-            larg =  1
+        if left < n and self.id[i] < self.id[left]:
+            larg = left
 
-        if r < n and self.id[larg] < self.id[r]:
-            larg = r
+        if right < n and self.id[larg] < self.id[right]:
+            larg = right
 
         if larg != i:
             self.id[i],self.id[larg] = self.id[larg],self.id[i]

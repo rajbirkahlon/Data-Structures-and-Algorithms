@@ -71,13 +71,13 @@ class Sorting(object):
         """
 
         for i_idx, i_item in enumerate(self.id):
+            j_idx = self.id[i_idx]
 
-            for j_idx in range(i_idx+1, len(self.id)):
+            while i_idx>0 and self.id[i_idx-1] > j_idx:
+                self.id[i_idx] = self.id[i_idx-1]
+                i_idx = i_idx-1
 
-                if self.id[j_idx] < self.id[j_idx-1]:
-                    temp = self.id[j_idx]
-                    self.id[j_idx] = self.id[j_idx-1]
-                    self.id[j_idx-1] = temp
+            self.id[i_idx] = j_idx
 
         return self.id
 
@@ -88,18 +88,19 @@ class Sorting(object):
 
         """
 
-        g = len(self.id) //2
-        while g>0:
+        a = 1
+        while a < len(self.id)/3:
+            a = 3*a + 1
+
+        while a >= 1:
             for i_idx, i_item in enumerate(self.id):
-                temp = self.id[i]
-                j_idx = i_idx
 
-                while j_idx >= g and self.id[j_idx] - g > temp:
-                    self.id[j_idx] = self.id[j_idx-g]
-                    j_idx = j_idx-g
-                self.id[j_idx] = temp
-
-                g = g//2
+                for j_idx in range(i_idx, ):
+                    if j_idx >= a and self.id[j] < self.id[j-a]:
+                        temp = self.id[j_idx]
+                        self.id[j_idx] = self.id[j_idx-a]
+                        self.id[j_idx-a] = temp
+                        j = j-a
 
         return self.id
 

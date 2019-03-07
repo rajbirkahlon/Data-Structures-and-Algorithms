@@ -134,7 +134,7 @@ class RBBST:
         current.right = x.left
         x.left = current
         x.color = current.color
-        current.color = True
+        current.color = RED
         return x
 
 
@@ -143,11 +143,13 @@ class RBBST:
         current.left = x.right
         x.right = current
         x.color = current.color
-        current.color = True
+        current.color = RED
         return x
 
     def flip_colors(self, current):
-
+        current.color = RED
+        current.left.color = BLACK
+        current.right.color = BLACK
         return False
 
     def insert(self, val):

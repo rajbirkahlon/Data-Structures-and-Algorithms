@@ -139,8 +139,12 @@ class RBBST:
 
 
     def rotate_right(self, current):
-
-        return False
+        x = current.left
+        current.left = x.right
+        x.right = current
+        x.color = current.color
+        current.color = True
+        return x
 
     def flip_colors(self, current):
 

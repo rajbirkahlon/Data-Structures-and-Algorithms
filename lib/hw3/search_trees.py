@@ -23,16 +23,19 @@ class Array_Search:
 
         hi = len(self.array)
         lo = 0
-        mid = val//2
-        i_idx = 0
 
-        for num in self.array:
-            if mid < val:
-                lo = mid
-            if mid > val:
-                hi = mid
-            if mid == val:
-                return mid
+        while lo <= hi:
+
+            mid = (hi+lo)//2
+            i_idx = 0
+
+            for num in self.array:
+                if self.id[mid] < val:
+                    lo = mid
+                if self.id[mid] > val:
+                 hi = mid
+                else:
+                    return mid
             i_idx += 1
 
         return False

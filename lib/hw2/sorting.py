@@ -150,9 +150,24 @@ class Sorting(object):
             self.id[:mid]
             self.id[mid:]
 
-        L = self.merge_sort(L)
-        R = self.merge_sort(R)
-        return self.merge(L, R)
+            L = self.merge_sort(L)
+            R = self.merge_sort(R)
+
+            i_idx = 0;
+            j_idx = 0;
+            k_idx = 0;
+            while i_idx < len(L) and j_idx < len(R):
+                if L[i_idx] < R[j_idx]:
+                    self.id[k_idx] = L[i_idx]
+                    i_idx += i_idx
+                else:
+                    self.id[k_idx] = R[j_idx]
+                    j_idx += j_idx
+                k_idx += k_idx
+
+
+
+        return self.id
 
 
     def merge(L,R):

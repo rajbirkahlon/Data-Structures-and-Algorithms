@@ -130,10 +130,13 @@ class RBBST:
         return current.color == RED
 
     def rotate_left(self, current):
+        x = current.right
+        current.right = x.left
+        x.left = current
+        x.color = current.color
+        current.color = True
+        return x
 
-
-
-        return False
 
     def rotate_right(self, current):
 

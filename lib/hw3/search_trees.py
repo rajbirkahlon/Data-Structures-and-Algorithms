@@ -21,6 +21,20 @@ class Array_Search:
 
     def bsearch(self, val):
 
+        hi = len(self.array)
+        lo = 0
+        mid = val//2
+        i_idx = 0
+
+        for num in self.array:
+            if mid < val:
+                lo = mid
+            if mid > val:
+                hi = mid
+            if mid == val:
+                return mid
+            i_idx += 1
+
         return False
 
 

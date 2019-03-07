@@ -63,17 +63,16 @@ class BST:
 
     def insertNode(self, current, val):
         while current.right.val and current.right.val:
-        if current.val > val:
-            if current.left is None:
-                current.left = BST_Node(val)
+            if current.val > val:
+                if current.left is None:
+                    current.left = BST_Node(val)
+                else:
+                    self.insertNode(self, current.left, val)
             else:
-                self.insertNode(self, current.left, val)
-        else:
-            if current.right is None:
-                current.right = BST_Node(val)
-            else:
-                self.insertNode(self, current.right, val)
-
+                if current.right is None:
+                    current.right = BST_Node(val)
+                else:
+                    self.insertNode(self, current.right, val)
         return False
 
     def bsearch(self, val):

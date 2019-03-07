@@ -141,17 +141,14 @@ class Sorting(object):
         of equal elements in the sorted output.
         """
 
-        if len(self.id) <= 1:
-            return self.id
-
         if len(self.id) > 1:
 
             mid = len(self.id) // 2
-            self.id[:mid]
-            self.id[mid:]
+            L = self.id[:mid]
+            R = self.id[mid:]
 
-            L = self.merge_sort(L)
-            R = self.merge_sort(R)
+            self.merge_sort(L)
+            self.merge_sort(R)
 
             i_idx = 0;
             j_idx = 0;
@@ -159,32 +156,23 @@ class Sorting(object):
             while i_idx < len(L) and j_idx < len(R):
                 if L[i_idx] < R[j_idx]:
                     self.id[k_idx] = L[i_idx]
-                    i_idx += i_idx
+                    i_idx = i_idx + 1
                 else:
                     self.id[k_idx] = R[j_idx]
-                    j_idx += j_idx
-                k_idx += k_idx
+                    j_idx = j_idx + 1
+                k_idx = k_idx + 1
 
+            while i_idx < len(L):
+                self.id[k_idx] = L[i_idx]
+                i_idx = i_idx + 1
+                k_idx = k_idx + 1
 
+            while j_idx < len(R):
+                self.id[k_idx] = R[j_idx]
+                j_idx = j_idx + 1
+                k_idx = k_idx + 1
 
         return self.id
-
-
-    def merge(L,R):
-
-        p = []
-        while len(L) !=0 and len(R) != 0:
-            if(L[0] < R[0]):
-                p.append(L[0])
-                L.remove(L[0])
-            else:
-                p.append(R[0])
-                R.remove(R[0])
-        if len(L) == 0:
-            p = p + R
-        else:
-            p = p + L
-        return p
 
 
     def quick_sort(self, l, h):

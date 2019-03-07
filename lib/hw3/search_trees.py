@@ -65,11 +65,13 @@ class BST:
         if current.val > val:
             if current.left is None:
                 current.left = BST_Node(val)
+                return
             else:
                 self.insertNode(self, current.left, val)
         else:
             if current.right is None:
                 current.right = BST_Node(val)
+                return
             else:
                 self.insertNode(self, current.right, val)
         return False

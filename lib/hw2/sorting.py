@@ -115,7 +115,7 @@ class Sorting(object):
         for i in range(len(self.id)-1, 0, -1):
             self.id[i], self.id[0] = self.id[0], self.id[i]
             self.heapify(self.id, i, 0)
-        return 1
+        return self.id
 
     def heapify(self, n, i):
         larg = i
@@ -130,10 +130,9 @@ class Sorting(object):
 
         if larg != i:
             self.id[i],self.id[larg] = self.id[larg],self.id[i]
-
             self.heapify(self.id, n, larg)
 
-        return 1
+        return self.id
 
     def merge_sort(self):
         """Merge sort is a divide and conquer algorithm that was invented
@@ -145,9 +144,11 @@ class Sorting(object):
         if len(self.id) <= 1:
             return self.id
 
-        mid = len(self.id) // 2
-        L = self.id[:mid]
-        R = self.id[mid:]
+        if len(self.id) > 1:
+
+            mid = len(self.id) // 2
+            self.id[:mid]
+            self.id[mid:]
 
         L = self.merge_sort(L)
         R = self.merge_sort(R)

@@ -62,6 +62,7 @@ class BST:
             self.insertNode(self.root, val)
 
     def insertNode(self, current, val):
+        while current.right.val and current.right.val:
         if current.val > val:
             if current.left is None:
                 current.left = BST_Node(val)

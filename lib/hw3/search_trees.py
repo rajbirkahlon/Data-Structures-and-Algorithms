@@ -131,7 +131,9 @@ class RBBST:
         return current.color == RED
 
     def rotate_left(self, current):
-        x = current.right
+        if current.right is None:
+            return
+        x = RBBST_Node(current.right, current.right.color)
         current.right = x.left
         x.left = current
         x.color = current.color
@@ -140,7 +142,7 @@ class RBBST:
 
 
     def rotate_right(self, current):
-        x = current.left
+        x = RBBST_Node(current.left, current.left.color)
         current.left = x.right
         x.right = current
         x.color = current.color
@@ -162,26 +164,27 @@ class RBBST:
     def insertNode(self, current, val):
         if current.val > val:
             if current.left is None:
-                current.left = RBBST_Node(val)
+                current.left = RBBST_Node(val, RED)
                 return True
             else:
                 self.insertNode(current.left, val)
         else:
             if current.right is None:
-                current.right = RBBST_Node(val)
+                current.right = RBBST_Node(val, RED)
                 return True
             else:
                 self.insertNode(current.right, val)
-        if current.right.color == RED and current.left.color == BLACK:
+
+        if current.right and current.left and current.right.color == RED and current.left.color == BLACK:
             current = self.rotate_left(current)
-        if current.left.color == RED and current.left.left.color == RED:
+        if current.left and current.left.left and current.left.color == RED and current.left.left.color == RED:
             current = self.rotate_left(current)
-        if current.right.color == RED and current.left.color == RED:
+        if current and current.right and current.left and current.right.color == RED and current.left.color == RED:
             self.flip_colors(current)
         return False
 
     def bsearch(self, val):
-        while(self.root != None):
+        if(self.root.right and self.root.left):
             if self.root.val < val:
                 self.root = self.root.left
             if self.root.val > val:

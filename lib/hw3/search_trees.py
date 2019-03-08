@@ -197,7 +197,7 @@ class RBBST:
                 self.searchNode(current.right, val)
             if current.val < val:
                 self.searchNode(current.left, val)
-            if current.val == val
+            if current.val == val:
                 return current
         return False
 

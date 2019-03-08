@@ -78,9 +78,9 @@ class BST:
 
     def bsearch(self, val):
         while(self.root):
-            if self.root.data > val:
+            if self.root.val > val:
                 self.root = self.root.left
-            if self.root.data < val:
+            if self.root.val < val:
                 self.root = self.root.right
             else:
                 return self.root
@@ -180,7 +180,8 @@ class RBBST:
         return False
 
     def bsearch(self, val):
-
+        while(self.root):
+            if self.root < val
         return False
 
     def searchNode(self, current, val):

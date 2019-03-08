@@ -184,10 +184,10 @@ class RBBST:
         return False
 
     def bsearch(self, val):
-        if(self.root.right and self.root.left):
-            if self.root.val < val:
+        while self.root.right and self.root.left:
+            if self.root.val < val and self.root.left:
                 self.root = self.root.left
-            if self.root.val > val:
+            if self.root.val > val and self.root.right:
                 self.root = self.root.right
             if self.root.val == val:
                 return self.root

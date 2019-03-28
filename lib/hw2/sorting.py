@@ -193,14 +193,14 @@ class Sorting(object):
         return 1
 
 
-    def part(self, l, h):
+    def partition(self, l, h):
         i = (l-1)
         p = self.id[h]
 
         for j in range(l, h):
             if self.id[j] <= p:
                 i = i + 1
-                self.id[i],self.id[j] = self.id[j],self.id[j]
+                self.id[i],self.id[j] = self.id[j],self.id[i]
                 return(i+1)
 
     # this plots things in log scale (pls google it), you need to add matplotlib

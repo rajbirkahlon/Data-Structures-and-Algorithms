@@ -141,40 +141,13 @@ class Sorting(object):
         of equal elements in the sorted output.
         """
 
-        if len(self.id) > 1:
-
-            mid = len(self.id)// 2
-            L = self.id[:mid]
-            R = self.id[mid:]
-
-            #self.merge_sort(L)
-            #self.merge_sort(R)
-
-            i_idx = 0
-            j_idx = 0
-            k_idx = 0
-
-            while i_idx < len(L) and j_idx < len(R):
-                if L[i_idx] < R[j_idx]:
-                    self.id[k_idx] = L[i_idx]
-                    i_idx = i_idx + 1
-                else:
-                    self.id[k_idx] = R[j_idx]
-                    j_idx = j_idx + 1
-                k_idx = k_idx + 1
-
-            while i_idx < len(L):
-                self.id[k_idx] = L[i_idx]
-                i_idx = i_idx + 1
-                k_idx = k_idx + 1
-
-            while j_idx < len(R):
-                self.id[k_idx] = R[j_idx]
-                j_idx = j_idx + 1
-                k_idx = k_idx + 1
+        #implement new method where merge_sort and merge are seperated functions
 
         return self.id
 
+    def merge(self):
+
+        return self.id
 
     def quick_sort(self, l, h):
         """Quicksort (sometimes called partition-exchange sort) is an efficient

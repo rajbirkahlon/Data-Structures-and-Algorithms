@@ -143,16 +143,17 @@ class Sorting(object):
 
         if len(self.id) > 1:
 
-            mid = len(self.id) // 2
+            mid = len(self.id)// 2
             L = self.id[:mid]
             R = self.id[mid:]
 
-            self.merge_sort(L)
-            self.merge_sort(R)
+            #self.merge_sort(L)
+            #self.merge_sort(R)
 
-            i_idx = 0;
-            j_idx = 0;
-            k_idx = 0;
+            i_idx = 0
+            j_idx = 0
+            k_idx = 0
+
             while i_idx < len(L) and j_idx < len(R):
                 if L[i_idx] < R[j_idx]:
                     self.id[k_idx] = L[i_idx]
@@ -160,17 +161,17 @@ class Sorting(object):
                 else:
                     self.id[k_idx] = R[j_idx]
                     j_idx = j_idx + 1
-                    k_idx = k_idx + 1
+                k_idx = k_idx + 1
 
-                while i_idx < len(L):
-                    self.id[k_idx] = L[i_idx]
-                    i_idx = i_idx + 1
-                    k_idx = k_idx + 1
+            while i_idx < len(L):
+                self.id[k_idx] = L[i_idx]
+                i_idx = i_idx + 1
+                k_idx = k_idx + 1
 
-                while j_idx < len(R):
-                    self.id[k_idx] = R[j_idx]
-                    j_idx = j_idx + 1
-                    k_idx = k_idx + 1
+            while j_idx < len(R):
+                self.id[k_idx] = R[j_idx]
+                j_idx = j_idx + 1
+                k_idx = k_idx + 1
 
         return self.id
 
@@ -179,41 +180,34 @@ class Sorting(object):
         """Quicksort (sometimes called partition-exchange sort) is an efficient
         sorting algorithm. Developed by Tony Hoare in 1959. It is still a commonly
         used algorithm for sorting. When implemented well, it can be about two or
-        three times faster than its main competitors, merge sort and heapsort.
-
-        """
-
+        three times faster than its main competitors, merge sort and heapsort. """
         if l < h:
-            pi = self.part(self, l, h)
-
-            self.quicksort(self, l, pi-1)
-            self.quicksort(self, pi+1, h)
-
-
-        return 1
+            pi = self.partition(l, h)
+            self.quick_sort(l, pi-1)
+            self.quick_sort(pi+1, h)
+        return self.id
 
 
     def partition(self, l, h):
         i = (l-1)
         p = self.id[h]
-
         for j in range(l, h):
             if self.id[j] <= p:
                 i = i + 1
                 self.id[i],self.id[j] = self.id[j],self.id[i]
-
         self.id[i+1],self.id[h] = self.id[h],self.id[i+1]
+
         return i+1
 
     # this plots things in log scale (pls google it), you need to add matplotlib
     # to your virtualenv first!
 
     # plot also python's sorted() function to see how well you do.
-if __name__ == "__main__":
+#if __name__ == "__main__":
 
     # iteration
-    set_szs = [10]
-    timing = []
+    #set_szs = [10]
+    #timing = []
 
     # gives the timing for union operation only, you might want to do this for all functions you wrote.
     #for set_sz in set_szs:

@@ -201,7 +201,9 @@ class Sorting(object):
             if self.id[j] <= p:
                 i = i + 1
                 self.id[i],self.id[j] = self.id[j],self.id[i]
-                return(i+1)
+
+        self.id[i+1],self.id[h] = self.id[h],self.id[i+1]
+        return i+1
 
     # this plots things in log scale (pls google it), you need to add matplotlib
     # to your virtualenv first!

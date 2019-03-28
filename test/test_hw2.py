@@ -56,7 +56,6 @@ class Test_UF(object):
 
         assert expected == actual
 
-
     def test_heap_sort_0(self):
 
 
@@ -96,5 +95,3 @@ class Test_UF(object):
         actual = arr_under_test.quick_sort()
 
         assert expected == actual
-
-

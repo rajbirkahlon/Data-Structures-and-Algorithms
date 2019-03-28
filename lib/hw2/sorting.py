@@ -7,7 +7,7 @@
 
 import time
 import random
-#import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 
 class Sorting(object):
     """Sorting class
@@ -111,16 +111,16 @@ class Sorting(object):
 
         """
         for i_idx in range(len(self.id), -1, -1):
-            self.heapify(self.id, len(self.id), i_idx)
+            self.heapify(len(self.id), i_idx)
         for i in range(len(self.id)-1, 0, -1):
             self.id[i], self.id[0] = self.id[0], self.id[i]
-            self.heapify(self.id, i, 0)
+            self.heapify(i, 0)
         return self.id
 
     def heapify(self, n, i):
         larg = i
         left = 2*i + 1
-        right = 2*i + 1
+        right = 2*i + 2
 
         if left < n and self.id[i] < self.id[left]:
             larg = left
@@ -130,7 +130,7 @@ class Sorting(object):
 
         if larg != i:
             self.id[i],self.id[larg] = self.id[larg],self.id[i]
-            self.heapify(self.id, n, larg)
+            self.heapify(n, larg)
 
         return self.id
 
@@ -160,17 +160,17 @@ class Sorting(object):
                 else:
                     self.id[k_idx] = R[j_idx]
                     j_idx = j_idx + 1
-                k_idx = k_idx + 1
+                    k_idx = k_idx + 1
 
-            while i_idx < len(L):
-                self.id[k_idx] = L[i_idx]
-                i_idx = i_idx + 1
-                k_idx = k_idx + 1
+                while i_idx < len(L):
+                    self.id[k_idx] = L[i_idx]
+                    i_idx = i_idx + 1
+                    k_idx = k_idx + 1
 
-            while j_idx < len(R):
-                self.id[k_idx] = R[j_idx]
-                j_idx = j_idx + 1
-                k_idx = k_idx + 1
+                while j_idx < len(R):
+                    self.id[k_idx] = R[j_idx]
+                    j_idx = j_idx + 1
+                    k_idx = k_idx + 1
 
         return self.id
 
@@ -207,11 +207,37 @@ class Sorting(object):
     # to your virtualenv first!
 
     # plot also python's sorted() function to see how well you do.
+if __name__ == "__main__":
 
+    # iteration
+    set_szs = [10]
+    timing = []
 
-    # plt.plot(set_szs, timing)
-    # plt.xscale('log')
-    # plt.yscale('log')
-    # plt.title('log')
-    # plt.ylabel('some numbers')
-    # plt.show()
+    # gives the timing for union operation only, you might want to do this for all functions you wrote.
+    #for set_sz in set_szs:
+        # initialize network nodes
+        #inodes = UF()
+       # inodes.qf_init(set_sz)
+
+        #t0 = time.time()
+
+      #  for idx in range(set_sz - 1):
+        #    rp = random.randint(0, set_sz - 1)
+           # rq = random.randint(0, set_sz - 1)
+
+         #   inodes.qf_union(rp, rq)
+
+       # t1 = time.time()
+
+      #  total_time = t1 - t0
+
+        #timing.append(total_time)
+
+      #  print(total_time)
+#
+#plt.plot(set_szs, timing)
+#plt.xscale('log')
+#plt.yscale('log')
+#plt.title('log')
+#plt.ylabel('some numbers')
+#plt.show()

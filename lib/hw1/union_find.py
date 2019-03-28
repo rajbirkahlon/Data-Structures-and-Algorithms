@@ -8,7 +8,7 @@
 
 import time
 import random
-#import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 
 class UF(object):
     """Union Find class
@@ -202,9 +202,10 @@ if __name__ == "__main__":
     # this plots things in log scale (pls google it), you need to add matplotlib to your virtualenv first!
 
 
-    # plt.plot(set_szs, timing)
-    # plt.xscale('log')
-    # plt.yscale('log')
-    # plt.title('log')
-    # plt.ylabel('some numbers')
-    # plt.show()
+    #plt.plot(set_szs, timing)
+    #plt.plot(qf_union(3, 2))
+    #plt.xscale('log')
+    #plt.yscale('log')
+    #plt.title('log')
+    #plt.ylabel('some numbers')
+    #plt.show()

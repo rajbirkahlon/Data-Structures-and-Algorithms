@@ -36,7 +36,7 @@ class Array_Search:
                  hi = mid
                 else:
                     return mid
-            i_idx += 1
+                i_idx += 1
 
         return False
 
@@ -127,7 +127,7 @@ class RBBST:
 
     def is_red(self, current):
         if current is None:
-            return False
+            return BLACK
         return current.color == RED
 
     def rotate_left(self, current):

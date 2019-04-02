@@ -142,10 +142,55 @@ class Sorting(object):
         """
 
         #implement new method where merge_sort and merge are seperated functions
+        left = 0
+        right = len(self.id)
+
+        if left<right:
+            mid = (left+(right-1))//2
+
+        L1 = self.id[:mid]
+        L2 = self.id[mid:]
+
+        self.merge_sort(L1)
+        self.merge_sort(L2)
+        self.merge(left,mid,right)
 
         return self.id
 
-    def merge(self):
+    def merge(self,left,mid,right):
+        a = mid-left+1
+        b = right-mid
+
+        Left = [0] * a
+        Right = [0] * b
+
+        for i in range(0, a):
+            Left[i] = self.id[left+i]
+        for j in range(0,b):
+            Right[j] = self.id[mid+1+j]
+
+        i=0
+        j=0
+        k=1
+
+        while i<a and j<b:
+            if Left[i] <= Right[j]:
+                self.id[k] = Left[i]
+                i += 1
+            else:
+                self.id[k] = Right[j]
+                j += 1
+            k += 1
+
+        while i<a:
+            self.id[k] = Left[i]
+            i += 1
+            k += 1
+
+        while j<b:
+            self.id[k] = Right[j]
+            j += 1
+            k += 1
 
         return self.id
 
@@ -158,6 +203,7 @@ class Sorting(object):
             pi = self.partition(l, h)
             self.quick_sort(l, pi-1)
             self.quick_sort(pi+1, h)
+
         return self.id
 
 

@@ -178,15 +178,17 @@ class RBBST:
         return False
 
     def bsearch(self, val):
-        while self.root.right and self.root.left:
             if self.root.val < val and self.root.left:
                 self.root = self.root.left
+                if self.root is None:
+                    return False
             if self.root.val > val and self.root.right:
                 self.root = self.root.right
+                if self.root is None:
+                    return False
             if self.root.val == val:
                 return self.root
-
-        return False
+            return False
 
     def searchNode(self, current, val):
         while(current != None):

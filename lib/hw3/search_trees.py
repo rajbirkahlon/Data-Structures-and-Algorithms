@@ -191,7 +191,7 @@ class RBBST:
             return False
 
     def searchNode(self, current, val):
-        while(current != None):
+        while current != None:
             if current.val > val:
                 self.searchNode(current.right, val)
             if current.val < val:

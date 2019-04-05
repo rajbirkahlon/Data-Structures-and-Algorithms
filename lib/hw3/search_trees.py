@@ -76,13 +76,14 @@ class BST:
         return False
 
     def bsearch(self, val):
-        while(self.root != None):
-            if self.root.val > val:
-                self.root = self.root.left
-            if self.root.val < val:
-                self.root = self.root.right
-            if self.root.val == val:
-                return self.root
+        x = self.root
+        while(x is not None):
+            if x.val > val:
+                x = x.left
+            if x.val < val:
+                x = x.right
+            if x.val == val:
+                return x
         return False
 
     def searchNode(self, current, val):
@@ -127,7 +128,8 @@ class RBBST:
     def rotate_left(self, current):
         if current.right is None:
             return
-        x = RBBST_Node(current.right.val, current.right.color)
+        x = current.right
+        #x = RBBST_Node(current.right.val, current.right.color)
         current.right = x.left
         x.left = current
         x.color = current.color
@@ -136,7 +138,8 @@ class RBBST:
 
 
     def rotate_right(self, current):
-        x = RBBST_Node(current.left.val, current.left.color)
+        x = current.left
+        #x = RBBST_Node(current.left.val, current.left.color)
         current.left = x.right
         x.right = current
         x.color = current.color
@@ -174,28 +177,30 @@ class RBBST:
         if current.left and current.left.left and current.left.color == RED and current.left.left.color == RED:
             current = self.rotate_left(current)
         if current and current.right and current.left and current.right.color == RED and current.left.color == RED:
-            self.flip_colors(current)
+            current = self.flip_colors(current)
         return False
 
     def bsearch(self, val):
-            if self.root.val < val and self.root.left:
-                self.root = self.root.left
-                if self.root is None:
+        x = self.root
+        while x is not None:
+            if x.val < val:
+                x = x.right
+                if x is None:
                     return False
-            if self.root.val > val and self.root.right:
-                self.root = self.root.right
-                if self.root is None:
+            if x.val > val:
+                x = x.left
+                if x is None:
                     return False
-            if self.root.val == val:
-                return self.root
-            return False
+            if x.val == val:
+                return x
+        return False
 
     def searchNode(self, current, val):
         while current != None:
             if current.val > val:
-                self.searchNode(current.right, val)
-            if current.val < val:
                 self.searchNode(current.left, val)
+            if current.val < val:
+                self.searchNode(current.right, val)
             if current.val == val:
                 return current
         return False

@@ -83,7 +83,6 @@ class BST:
                 self.root = self.root.right
             if self.root.val == val:
                 return self.root
-
         return False
 
     def searchNode(self, current, val):
@@ -94,7 +93,6 @@ class BST:
                 self.searchNode(current.right, val)
             if current.val == val:
                 return current
-
         return False
 
     def delete(self, val):
@@ -104,7 +102,6 @@ class BST:
         return False
 
 
-
 class RBBST_Node:
     def __init__(self, val, color):
         self.val = val
@@ -112,10 +109,8 @@ class RBBST_Node:
         self.right = None
         self.color = color
 
-
 RED = True
 BLACK = False
-
 
 class RBBST:
     def __init__(self):
@@ -132,7 +127,7 @@ class RBBST:
     def rotate_left(self, current):
         if current.right is None:
             return
-        x = RBBST_Node(current.right, current.right.color)
+        x = RBBST_Node(current.right.val, current.right.color)
         current.right = x.left
         x.left = current
         x.color = current.color
@@ -141,7 +136,7 @@ class RBBST:
 
 
     def rotate_right(self, current):
-        x = RBBST_Node(current.left, current.left.color)
+        x = RBBST_Node(current.left.val, current.left.color)
         current.left = x.right
         x.right = current
         x.color = current.color

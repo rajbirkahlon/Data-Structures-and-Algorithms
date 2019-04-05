@@ -33,11 +33,10 @@ class Array_Search:
                 if self.id[mid] < val:
                     lo = mid
                 if self.id[mid] > val:
-                 hi = mid
-                else:
+                    hi = mid
+                if self.id[mid] == val:
                     return mid
                 i_idx += 1
-
         return False
 
 

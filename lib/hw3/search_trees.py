@@ -57,6 +57,7 @@ class BST:
     def insert(self, val):
         if (self.root is None):
             self.init_bst(val)
+            print("Inserted at root: ", val)
         else:
             self.insertNode(self.root, val)
 
@@ -64,28 +65,31 @@ class BST:
         if current.val > val:
             if current.left is None:
                 current.left = BST_Node(val)
+                print("Inserted to left: ", val)
                 return True
             else:
                 self.insertNode(current.left, val)
         else:
             if current.right is None:
                 current.right = BST_Node(val)
+                print("Inserted to right: ", val)
                 return True
             else:
                 self.insertNode(current.right, val)
         return False
 
     def bsearch(self, val):
+        if self.root is None:
+            return False
         x = self.root
-        #idx = 0
-        while(x is not None):
-            #idx += 1
+        while x is not None:
             if x.val > val:
                 x = x.left
+                print("It is less than ")
             if x.val < val:
                 x = x.right
             if x.val == val:
-                return x
+                return idx
         return False
 
     def searchNode(self, current, val):
@@ -121,7 +125,7 @@ class RBBST:
 
     def init_rbbst(self, val, color):
         self.root = RBBST_Node(val, color)
-        print("val=%d Inserted to root!!!\n", val)
+        print("Inserted to root!!!", val)
 
     def is_red(self, current):
         if current is None:
@@ -165,7 +169,7 @@ class RBBST:
         if current.val > val:
             if current.left is None:
                 current.left = RBBST_Node(val, RED)
-                print("val=%d Inserted to left!!!\n", val)
+                print("Inserted to left!!!", val)
                 self.check_balance(current)
                 print("Balanced\n")
                 return True
@@ -174,10 +178,9 @@ class RBBST:
         else:
             if current.right is None:
                 current.right = RBBST_Node(val, RED)
-                print("val=%d Inserted to right!!!\n", val)
+                print("Inserted to right!!!", val)
                 self.check_balance(current)
                 print("Balanced\n")
-
                 return True
             else:
                 self.insertNode(current.right, val)
@@ -185,18 +188,94 @@ class RBBST:
 
     def check_balance(self,x):
         a = self.root
+        if a.right is not None and a.right.color == RED and a.left is None:
+            a = self.rotate_left(a)
+            print("ROOT rotated left\n")
+        if a.right is not None and a.left is not None and a.right.color == RED and a.left.color == BLACK:
+            a = self.rotate_left(a)
+            print("ROOT rotated left\n")
+        if a.left is not None and a.left.left is not None and a.left.color == RED and a.left.left.color == RED:
+            a = self.rotate_left(a)
+            print("ROOT rotated right\n")
+        if a.left and a.right and a.right.color == RED and a.left.color == RED:
+            a = self.flip_colors(a)
+            print("ROOT flipped\n")
+
+
+        if self.root.right is not None:
+            a = self.root.right
+            if a.right and a.right.color == RED and a.left is None:
+                a = self.rotate_left(a)
+                print("R rotated left\n")
+            if a.right and a.left and a.right.color == RED and a.left.color == BLACK:
+                a = self.rotate_left(a)
+                print("R rotated left\n")
+            if a.left and a.left.left and a.left.color == RED and a.left.left.color == RED:
+                a = self.rotate_left(a)
+                print("R rotated right\n")
+            if a.left and a.right and a.right.color == RED and a.left.color == RED:
+                a = self.flip_colors(a)
+                print("R flipped\n")
+
+        if self.root.left is not None:
+            a = self.root.left
+            if a.right and a.right.color == RED and a.left is None:
+                a = self.rotate_left(a)
+                print("L rotated left\n")
+            if a.right and a.left and a.right.color == RED and a.left.color == BLACK:
+                a = self.rotate_left(a)
+                print("L rotated left\n")
+            if a.left and a.left.left and a.left.color == RED and a.left.left.color == RED:
+                a = self.rotate_left(a)
+                print("L rotated right\n")
+            if a.left and a.right and a.right.color == RED and a.left.color == RED:
+                a = self.flip_colors(a)
+                print("L flipped\n")
+
+        a = self.root
         if a.right and a.right.color == RED and a.left is None:
             a = self.rotate_left(a)
-            print("rotated left\n")
+            print("ROOT rotated left\n")
         if a.right and a.left and a.right.color == RED and a.left.color == BLACK:
             a = self.rotate_left(a)
-            print("rotated left\n")
+            print("ROOT rotated left\n")
         if a.left and a.left.left and a.left.color == RED and a.left.left.color == RED:
             a = self.rotate_left(a)
-            print("rotated right\n")
-        if a.left and a.right and a.left and a.right.color == RED and a.left.color == RED:
-            x = self.flip_colors(a)
-            print("flipped\n")
+            print("ROOT rotated right\n")
+        if a.left and a.right and a.right.color == RED and a.left.color == RED:
+            a = self.flip_colors(a)
+            print("ROOT flipped\n")
+
+        if self.root.right is not None:
+            a = self.root.right
+            if a.right and a.right.color == RED and a.left is None:
+                a = self.rotate_left(a)
+                print("R rotated left\n")
+            if a.right and a.left and a.right.color == RED and a.left.color == BLACK:
+                a = self.rotate_left(a)
+                print("R rotated left\n")
+            if a.left and a.left.left and a.left.color == RED and a.left.left.color == RED:
+                a = self.rotate_left(a)
+                print("R rotated right\n")
+            if a.left and a.right and a.right.color == RED and a.left.color == RED:
+                a = self.flip_colors(a)
+                print("R flipped\n")
+
+        if self.root.left is not None:
+            a = self.root.left
+            if a.right and a.right.color == RED and a.left is None:
+                a = self.rotate_left(a)
+                print("L rotated left\n")
+            if a.right and a.left and a.right.color == RED and a.left.color == BLACK:
+                a = self.rotate_left(a)
+                print("L rotated left\n")
+            if a.left and a.left.left and a.left.color == RED and a.left.left.color == RED:
+                a = self.rotate_left(a)
+                print("L rotated right\n")
+            if a.left and a.right and a.right.color == RED and a.left.color == RED:
+                a = self.flip_colors(a)
+                print("L flipped\n")
+
         #if a.right and a.right.color == RED or a.left.left and a.left and a.left.left.color == a.left.color == RED:
             #self.check_balance(a)
         return

@@ -7,7 +7,7 @@
 
 import time
 import random
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 
 class Sorting(object):
     """Sorting class

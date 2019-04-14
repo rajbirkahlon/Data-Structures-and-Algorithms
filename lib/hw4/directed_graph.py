@@ -1,59 +1,38 @@
 class Digraph:
-    """This class implements a directed, weighted graph with nodes represented by integers. """
+    """This class implements a directed graph with nodes represented by integers. """
 
     def __init__(self):
         """Initializes this digraph."""
         self.nodes = set()
-        self.children = dict()
-        self.parents = dict()
         self.edges = 0
 
     def add_node(self, node):
-        """If 'node' is not already present in this digraph,
-           adds it and prepares its adjacency lists for children and parents."""
+        """adds vertices to your graph"""
 
         return 1
-    def add_arc(self, tail, head, weight):
-        """Creates a directed arc pointing from 'tail' to 'head' and assigns 'weight' as its weight."""
+    def add_edge(self, last, first):
+        """creates edges between two given vertices in your graph"""
         
         return 1
 
-    def has_arc(self, tail, head):
-        
-
-        return 1
-    def get_arc_weight(self, tail, head):
+    def has_edge(self, first, last):   
+        """checks if a connection exists between two given nodes in your graph"""
         
 
         return 1
 
-    def remove_arc(self, tail, head):
-        """Removes the directed arc from 'tail' to 'head'."""
+    def remove_edge(self, last, first):
+        """removes edges between two given vertices in your graph"""
         
         return 1
 
     def remove_node(self, node):
-        """Removes the node from this digraph. Also, removes all arcs incident on the input node."""
+        """removes vertices from your graph"""
         
         return 1
 
-    def __len__(self):
-        
-        return 1 
+    def contains(self, node):
+        """checks if your graph contains a given value"""
 
-    def number_of_arcs(self):
         return 1
 
-    def get_parents_of(self, node):
-        """Returns all parents of 'node'."""
-        return 1
-
-    def get_children_of(self, node):
-        """Returns all children of 'node'."""
-        return 1
-
-    def clear(self):
-        del self.nodes[:]
-        self.children.clear()
-        self.parents.clear()
-        self.edges = 0

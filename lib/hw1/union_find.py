@@ -8,7 +8,7 @@
 
 import time
 import random
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 
 class UF(object):
     """Union Find class

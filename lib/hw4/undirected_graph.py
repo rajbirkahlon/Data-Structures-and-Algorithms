@@ -19,16 +19,17 @@ class Graph:
         self.vertices = {}
     
     def add_vertex(self, vertex):
-        
+        self.vertices.append(vertex)
         return 1
 
             
     def add_vertices(self, vertices):
-        
+        self.vertices.appen(vertices)
         return 1 
             
     def add_edge(self, vertex_from, vertex_to):
-        
+        vertex_from.add_vertex(vertex_to)
+        vertex_to.add_vertex(vertex_from)
         return 1 
                 
     def add_edges(self, edges):

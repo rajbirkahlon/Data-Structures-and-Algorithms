@@ -1,3 +1,4 @@
+import vertex
 class Digraph:
     """This class implements a directed graph with nodes represented by integers. """
 
@@ -8,7 +9,8 @@ class Digraph:
 
     def add_node(self, node):
         """adds vertices to your graph"""
-
+        new_node = Vertex(node)
+        self.nodes[node] = new_node
         return 1
     def add_edge(self, last, first):
         """creates edges between two given vertices in your graph"""

@@ -1,15 +1,17 @@
+import sys
 class Vertex:
     def __init__(self, vertex):
         self.name = vertex
         self.neighbors = []
-
+        self.dist = sys.maxint
+        self.visited = False
         
     def add_neighbor(self, neighbor):
-        
+        self.adjacent[neighbor] = 0
         return 1
         
     def add_neighbors(self, neighbors):
-        
+        self.adjacent[neighbors] = 0
         return 1
         
     def __repr__(self):
@@ -37,11 +39,11 @@ class Graph:
         return 1 
                 
     def add_edges(self, edges):
-        
+        self.add_vertices(edges)
         return 1         
     
     def adjacencyList(self): # to represent the graph as adjacent list  
-        
+        return self.vertices
         return 1           
                         
 def graph(g):

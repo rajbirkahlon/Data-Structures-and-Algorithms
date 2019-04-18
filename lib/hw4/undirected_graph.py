@@ -36,6 +36,10 @@ class Graph:
             self.add_vertex(vertex_from)
         if vertex_to not in self.vertices:
             self.add_vertex(vertex_to)
+
+        self.vertices[vertex_from].add_neighbor(self.vertices[vertex_to])
+        self.vertices[vertex_to].add_neighbor(self.vertices[vertex_from])
+
         return 1 
                 
     def add_edges(self, edges):

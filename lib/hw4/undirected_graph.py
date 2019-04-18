@@ -28,8 +28,8 @@ class Graph:
 
             
     def add_vertices(self, vertices):
-        #self.vertices.appen(vertices)
-        return 1 
+        self.vertices == self.vertices + vertices
+        return 1
             
     def add_edge(self, vertex_from, vertex_to):
         if vertex_from not in self.vertices:

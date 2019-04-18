@@ -35,9 +35,10 @@ class Digraph:
 
     def has_edge(self, first, last):   
         """checks if a connection exists between two given nodes in your graph"""
-        
-
-        return 1
+        if self.vertices[first].add_neighbor(self.vertices[last]) or self.vertices[last].add_neighbor(self.vertices[first]):
+            return True
+        else:
+            return False
 
     def remove_edge(self, last, first):
         """removes edges between two given vertices in your graph"""

@@ -1,3 +1,4 @@
+import sys
 class Vertex:
     def __init__(self, vertex):
         self.name = vertex
@@ -26,16 +27,16 @@ class Digraph:
         """creates edges between two given vertices in your graph"""
         if last not in self.nodes:
             self.add_node(last)
-            self.vertices[last].add_neighbor(self.vertices[first])
+            self.nodes[last].add_neighbor(self.nodes[first])
         else:
             self.add_node(first)
-            self.vertices[first].add_neighbor(self.vertices[last])
+            self.nodes[first].add_neighbor(self.nodes[last])
 
         return 1
 
     def has_edge(self, first, last):   
         """checks if a connection exists between two given nodes in your graph"""
-        if self.vertices[first].neighbor == last or self.vertices[last].neighbor == first:
+        if self.nodes[first].neighbor == last or self.nodes[last].neighbor == first:
             return True
         else:
             return False
@@ -43,9 +44,9 @@ class Digraph:
     def remove_edge(self, last, first):
         """removes edges between two given vertices in your graph"""
         if last not in self.nodes:
-            self.vertices[last].neighbor = None
+            self.nodes[last].neighbor = None
         else:
-            self.vertices[first].neighbor = None
+            self.nodes[first].neighbor = None
 
         return 1
 
@@ -57,6 +58,8 @@ class Digraph:
 
     def contains(self, node):
         """checks if your graph contains a given value"""
-
-        return 1
+        for i in range(len(self.nodes)):
+            if self.nodes[i] == node:
+                return True
+        return False
 

@@ -48,7 +48,7 @@ class Graph:
     
     def adjacencyList(self): # to represent the graph as adjacent list  
         return self.vertices
-        return 1           
+
                         
 def graph(g):
     """ Function to print a graph as adjacency list and adjacency matrix. """

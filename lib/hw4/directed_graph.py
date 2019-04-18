@@ -52,7 +52,7 @@ class Digraph:
 
     def remove_node(self, node):
         """removes vertices from your graph"""
-        
+        self.nodes[node] = None
         return 1
 
     def contains(self, node):

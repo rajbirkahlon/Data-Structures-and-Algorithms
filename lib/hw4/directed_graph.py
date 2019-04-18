@@ -42,6 +42,10 @@ class Digraph:
 
     def remove_edge(self, last, first):
         """removes edges between two given vertices in your graph"""
+        if last not in self.nodes:
+            self.vertices[last].neighbor = None
+        else:
+            self.vertices[first].neighbor = None
 
         return 1
 

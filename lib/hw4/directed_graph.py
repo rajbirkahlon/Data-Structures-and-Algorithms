@@ -24,7 +24,13 @@ class Digraph:
         return 1
     def add_edge(self, last, first):
         """creates edges between two given vertices in your graph"""
-        
+        if last not in self.nodes:
+            self.add_node(last)
+            self.vertices[last].add_neighbor(self.vertices[first])
+        else:
+            self.add_node(first)
+            self.vertices[first].add_neighbor(self.vertices[last])
+
         return 1
 
     def has_edge(self, first, last):   

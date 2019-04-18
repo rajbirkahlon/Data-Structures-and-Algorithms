@@ -2,6 +2,7 @@ class Vertex:
     def __init__(self, vertex):
         self.name = vertex
         self.neighbors = []
+
         
     def add_neighbor(self, neighbor):
         
@@ -19,17 +20,20 @@ class Graph:
         self.vertices = {}
     
     def add_vertex(self, vertex):
-        self.vertices.append(vertex)
+        new_v = Vertex(vertex)
+        self.neighbors[vertex] = new_v
         return 1
 
             
     def add_vertices(self, vertices):
-        self.vertices.appen(vertices)
+        #self.vertices.appen(vertices)
         return 1 
             
     def add_edge(self, vertex_from, vertex_to):
-        vertex_from.add_vertex(vertex_to)
-        vertex_to.add_vertex(vertex_from)
+        if vertex_from not in self.vertices:
+            self.add_vertex(vertex_from)
+        if vertex_to not in self.vertices:
+            self.add_vertex(vertex_to)
         return 1 
                 
     def add_edges(self, edges):

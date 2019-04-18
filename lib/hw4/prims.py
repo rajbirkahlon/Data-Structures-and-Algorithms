@@ -7,8 +7,8 @@ class Graph():
         self.graph = [[0 for column in range(vertices)]  
                     for row in range(vertices)] 
 
-    def primMST(self): 
-
+    def primMST(self):
+        edgeTo = Edge[self().V]
 
 
     	return 1

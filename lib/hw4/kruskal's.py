@@ -24,7 +24,7 @@ class Graph:
         while pq and  self.size < graph.V()-1:
             e = pq.delMin()
             v = e.either(), w = e.other(v)
-            if(!connected()):
+            if not connected():
                 uf.union(v,w)
                 mst.enqueu(e)
     	return 1

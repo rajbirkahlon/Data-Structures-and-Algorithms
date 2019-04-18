@@ -1,4 +1,14 @@
-import vertex
+class Vertex:
+    def __init__(self, vertex):
+        self.name = vertex
+        self.neighbors = []
+        self.dist = sys.maxint
+        self.visited = False
+
+    def add_neighbor(self, neighbor):
+        self.adjacent[neighbor] = 0
+        return 1
+
 class Digraph:
     """This class implements a directed graph with nodes represented by integers. """
 

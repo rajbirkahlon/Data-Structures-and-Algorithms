@@ -66,7 +66,7 @@ def BellmanFord(graph, source):
                     dest[b] = dest[node] + graph[node][b]
                     pred[b] = node
 
-    return 1
+    return dest,pred
 
 
 def Ford_fullerskon(graph, source, sink):    # you can implement Bfs or dfs to get the path from source(start node) to sink(end node)

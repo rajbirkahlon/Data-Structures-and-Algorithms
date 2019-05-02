@@ -52,8 +52,14 @@ def dijkstra(graph, source):
     return visited, path
 
 def BellmanFord(graph, source):
+    dest = {}
+    pred = {}
+    for node in graph:
+        dest[node] = float('Inf')
+        pred[node] = None
+    dest[source]  = 0
+    return dest,pred
 
-    return 1
 
 def Ford_fullerskon(graph, source, sink):    # you can implement Bfs or dfs to get the path from source(start node) to sink(end node)
 

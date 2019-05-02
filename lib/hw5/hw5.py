@@ -25,7 +25,12 @@ class Edge:
         self.length = length
 
 def dijkstra(graph, source):
-    
+    visited = 0
+    path = {}
+    nodes = set(graph.nodes)
+
+
+
     return 1
 
 def BellmanFord(graph, source):

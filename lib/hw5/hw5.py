@@ -70,5 +70,7 @@ def BellmanFord(graph, source):
 
 
 def Ford_fullerskon(graph, source, sink):    # you can implement Bfs or dfs to get the path from source(start node) to sink(end node)
+    max_flow = 0
 
-    return 1 
+
+    return max_flow

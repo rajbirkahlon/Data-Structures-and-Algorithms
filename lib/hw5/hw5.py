@@ -29,6 +29,20 @@ def dijkstra(graph, source):
     path = {}
     nodes = set(graph.nodes)
 
+    while nodes:
+        m_node = None
+        for node in nodes:
+            if node in visited:
+                if m_node is None:
+                    m_mode = node
+                elif visited[node] < visited[m_node]:
+                    m_node = node
+        if m_node is None:
+            break
+
+        nodes.remove(m_node)
+        current_weight = visited[m_node]
+
 
 
     return 1

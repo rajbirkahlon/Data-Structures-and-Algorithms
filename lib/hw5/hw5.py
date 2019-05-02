@@ -41,11 +41,15 @@ def dijkstra(graph, source):
             break
 
         nodes.remove(m_node)
-        current_weight = visited[m_node]
+        c_weight = visited[m_node]
 
+        for edge in graph.edges[m_node]:
+            weight = c_weight + graph.distance[(m_node, edge)]
+            if edge not in visited or weight < visited[edge]:
+                visited[edge] = weight
+                path[edge] = m_node
 
-
-    return 1
+    return visited, path
 
 def BellmanFord(graph, source):
 

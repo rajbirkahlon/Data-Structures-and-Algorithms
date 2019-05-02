@@ -57,8 +57,16 @@ def BellmanFord(graph, source):
     for node in graph:
         dest[node] = float('Inf')
         pred[node] = None
-    dest[source]  = 0
-    return dest,pred
+    dest[source] = 0
+
+    for i in range(len(graph)-1):
+        for a in graph:
+            for b in graph[a]:
+                if dest[b] > dest[node] + graph[node][b]:
+                    dest[b] = dest[node] + graph[node][b]
+                    pred[b] = node
+
+    return 1
 
 
 def Ford_fullerskon(graph, source, sink):    # you can implement Bfs or dfs to get the path from source(start node) to sink(end node)

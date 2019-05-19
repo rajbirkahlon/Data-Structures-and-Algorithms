@@ -18,7 +18,7 @@ class Graph():
         while not pq.isEmpty() and  self.size < Graph.V()-1:
             e = pq.delMin()
             v = e.either()
-            w = not e.either
+            w = e.other
             if marked[v] and marked [w]:
                 mst.enqueue(e)
                 if not marked[w]:

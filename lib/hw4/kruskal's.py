@@ -1,6 +1,6 @@
 from collections import defaultdict
-import PriorityQueue
 from hw1 import union_find.py
+from queue import *
 
 #Class to represent a graph 
 class Graph:
@@ -18,13 +18,14 @@ class Graph:
 
 
     def KruskalMST(self):
-        mst = new Queue()
-        pq = new MinPQ,(graph.V())
-        uf = new UF(graph.V())
-        while pq and  self.size < graph.V()-1:
+        mst = Queue(maxsize=20)
+        pq = Queue(maxsize=20)
+        uf = self.UF(Graph.V())
+        while pq and  self.size < Graph.V()-1:
             e = pq.delMin()
-            v = e.either(), w = e.other(v)
-            if not connected():
+            v = e.either()
+            w = e.other(v)
+            if not self.connected():
                 uf.union(v,w)
                 mst.enqueu(e)
     	return 1

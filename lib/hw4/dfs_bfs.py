@@ -19,10 +19,6 @@ class Graph:
 			self.nodes[v].add_neighbor(self.nodes[u])
 			self.nodes[u].add_neighbor(self.nodes[v])
 
-	def dfs(self, v):
-
-    	return 1
-
    	def bfs(self, v):
 		p = float('Inf')
 		for i in range(len(self.graph)):
@@ -39,3 +35,11 @@ class Graph:
 				self.marked[b] = True
 				Queue.enqueue(b)
 		return 1
+
+	def dfs(self, v):
+		self.marked = True
+		for i in range(Graph):
+			if self.marked[i] == False:
+				self.edgeTo[i] = v
+				self.dfs(Graph,i)
+    	return 1

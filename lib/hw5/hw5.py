@@ -89,14 +89,10 @@ def Ford_fullerskon(graph, source, sink):    # you can implement Bfs or dfs to g
     while path is not None:
         capacitymin = sys.maxint
         for i in path:
-            if(self.edge.capacity<capacitymin):
+            if(edge.capacity<capacitymin):
                 capacitymin = i.capacity
         for edge in path:
             edge.flow = edge.flow+capacitymin
         path = source.find(sink,[])
 
-
-
-
-
-    return max_flow
+    return path

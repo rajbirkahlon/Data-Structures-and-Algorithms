@@ -1,3 +1,4 @@
+import sys
 class Graph:
     def __init__(self):
         self.nodes = set()
@@ -80,11 +81,14 @@ def BellmanFord(graph, source):
                 if dest[b] > dest[node] + graph[node][b]:
                     dest[b] = dest[node] + graph[node][b]
                     pred[b] = node
-
     return dest,pred
 
 
 def Ford_fullerskon(graph, source, sink):    # you can implement Bfs or dfs to get the path from source(start node) to sink(end node)
+    path = source.find(sink,[])
+    while path is not None:
+        capacitymin = sys.maxint
+
 
 
 

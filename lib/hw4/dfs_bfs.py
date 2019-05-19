@@ -1,4 +1,5 @@
-from collections import defaultdict 
+from queue import *
+from collections import defaultdict
 
 class Graph:
 	def __init__(self): 
@@ -18,14 +19,23 @@ class Graph:
 			self.nodes[v].add_neighbor(self.nodes[u])
 			self.nodes[u].add_neighbor(self.nodes[v])
 
-def dfs(self, v):
-
-
+	def dfs(self, v):
 
     	return 1
 
    	def bfs(self, v):
+		p = float('Inf')
+		for i in range(len(self.graph)):
+			distTo[i] = p
+		self.distTo = 0
+		self.marked[v] = True
+		Queue.enqueue(v)
 
-
-
+		while Queue:
+			a = Queue.dequeue()
+			for b in range(self.graph):
+				edgeTo[b] = a
+				distTo[b] = distTo[a]+1
+				marked[b] = true
+				Queue.enqueue(b)
 		return 1

@@ -1,10 +1,9 @@
 import sys # Library for INT_MAX 
-
+from queue import *
 class Graph():
 
 
 
-    Queue mst = new Queue()
 
     def __init__(self, vertices):
         self.V = vertices 
@@ -12,17 +11,19 @@ class Graph():
                     for row in range(vertices)] 
 
     def primMST(self):
-        Queue mst = new Queue()
+        mst = Queue(maxsize=20)
+        pq = Queue(maxsize=19)
         marked = True
         unmarked = False
-        while not pq.isEmpty() and  self.size < graph.V()-1:
+        while not pq.isEmpty() and  self.size < Graph.V()-1:
             e = pq.delMin()
             v = e.either()
+            w = not e.either
             if marked[v] and marked [w]:
                 mst.enqueue(e)
                 if not marked[w]:
-                    visit(graph,w)
+                    self.visit(Graph,w)
                 if not marked[v]:
-                    visit(graph,v)
+                    self.visit(Graph,v)
 
     	return 1

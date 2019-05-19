@@ -26,7 +26,7 @@ class Graph:
    	def bfs(self, v):
 		p = float('Inf')
 		for i in range(len(self.graph)):
-			distTo[i] = p
+			self.distTo[i] = p
 		self.distTo = 0
 		self.marked[v] = True
 		Queue.enqueue(v)
@@ -34,8 +34,8 @@ class Graph:
 		while Queue:
 			a = Queue.dequeue()
 			for b in range(self.graph):
-				edgeTo[b] = a
-				distTo[b] = distTo[a]+1
-				marked[b] = true
+				self.edgeTo[b] = a
+				self.distTo[b] = self.distTo[a]+1
+				self.marked[b] = True
 				Queue.enqueue(b)
 		return 1

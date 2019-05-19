@@ -1,5 +1,7 @@
 import sys
 from collections import defaultdict
+from queue import *
+
   
 #Class to represent a graph 
 class Graph: 
@@ -12,24 +14,26 @@ class Graph:
         self.graph[u].append(v)
 
     def topological_Sort(self):
+        PQ = Queue(maxsize=100)
         ranks = self.V
         order = PQ
-        in_deg = {a = 0 for a in Graph}
+        for a in Graph:
+            self.in_deg[a] = 0
             for a in Graph:
                 for b in Graph[a]:
-                    in_deg[b] = in_deg[b]+1
+                    self.in_deg[b] = self.in_deg[b]+1
 
-        Q = deque()
-        for a in in_deg:
-            if in_deg[a] == 0:
+        Q = self.deque()
+        for a in self.in_deg:
+            if self.in_deg[a] == 0:
                 Q.append()
 
         L = []
         a = Q.pop()
         L.append[a]
         for b in Graph[a]:
-            in_deg[b] = in_deg[b]-1
-            if in_deg[b] == 0:
+            self.in_deg[b] = self.in_deg[b]-1
+            if self.in_deg[b] == 0:
                 Q.append()
 
         return L

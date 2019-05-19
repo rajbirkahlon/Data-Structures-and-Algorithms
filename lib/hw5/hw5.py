@@ -20,9 +20,11 @@ class Node:
         self.label = label
 
 class Edge:
-    def __init__(self, to_node, length):
+    def __init__(self, to_node, length,capacity):
         self.to_node = to_node
         self.length = length
+        self.flow = 0;
+        self.capacity = capacity
 
 def dijkstra(graph, source):
     visited = 0
@@ -70,7 +72,8 @@ def BellmanFord(graph, source):
 
 
 def Ford_fullerskon(graph, source, sink):    # you can implement Bfs or dfs to get the path from source(start node) to sink(end node)
-    max_flow = 0
+
+
 
 
     return max_flow

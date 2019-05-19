@@ -24,12 +24,15 @@ class Graph:
             if in_deg[a] == 0:
                 Q.append()
 
+        L = []
+        a = Q.pop()
+        L.append[a]
+        for b in Graph[a]:
+            in_deg[b] = in_deg[b]-1
+            if in_deg[b] == 0:
+                Q.append()
 
-        Q.append()
-
-
-    	return 1
-
+        return L
 
    	def SCC(self):    # strongly connected components
 

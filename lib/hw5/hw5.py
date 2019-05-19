@@ -29,7 +29,8 @@ class Node:
                     to_node = edge.to_node
                     path.appende(edge)
                     ans = to_node.find(sink,path)
-
+                    if ans is not None:
+                        return ans
 
 class Edge:
     def __init__(self, to_node, length,capacity):

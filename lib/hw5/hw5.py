@@ -19,6 +19,18 @@ class Node:
     def __init__(self, label):
         self.label = label
 
+    def find(self,sink,path):
+        if(self == sink):
+            return path
+        for edge in self.edges:
+            mud = edge.capacity - edge.flow
+            if mud >0:
+                if edge not in path:
+                    to_node = edge.to_node
+                    path.appende(edge)
+                    ans = to_node.find(sink,path)
+
+
 class Edge:
     def __init__(self, to_node, length,capacity):
         self.to_node = to_node
